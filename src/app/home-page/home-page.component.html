@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <div
+        *ngFor="let post of data"
+        class="col-md-4 col-12">
+            <app-dummy-post-item
+            [data]="post"
+            ></app-dummy-post-item>
+        </div>
+    </div>
+
+</div>
+
