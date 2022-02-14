@@ -6,6 +6,7 @@ export interface DummyPostItem {
   id?:     number;
   title?:  string;
   body?:   string;
+  isBeingEdited?:boolean;
 }
 
 
@@ -16,16 +17,24 @@ export interface DummyPostItem {
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient) { }
   data:DummyPostItem[]=[]
 
   getPostsFromInternet():Observable<DummyPostItem[]>{
     return this.http.get('https://jsonplaceholder.typicode.com/posts') as Observable<DummyPostItem[]>
   }
 
+  // updateData(val:any,index:number){
+  //   this.data[index]=val;
+  //   console.log(this.data)
+  // }
   ngOnInit(): void {
     this.getPostsFromInternet().subscribe((posts)=>{
-      this.data=posts;
+      this.data=posts.map((val)=>{
+        val.isBeingEdited=false;
+        return val;
+      });
+      console.log(this.data)
     })
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 import { DummyPostItem } from '../home-page.component';
 
 @Component({
@@ -9,11 +9,31 @@ import { DummyPostItem } from '../home-page.component';
 export class DummyPostItemComponent implements OnInit {
 
   @Input()
-  data:DummyPostItem={}
+  model:DummyPostItem={}
+
+  @Output()
+  modelChange:EventEmitter<DummyPostItem>=new EventEmitter<DummyPostItem>()
+
+  @Input()
+  color='black'
+
+  get myComponentStyle():string{
+    return `color:${this.color};`
+  }
+
+  toggleEditState(){
+    console.log('state edited')
+   const obj:any =Object.assign({},this.model)
+   obj.isBeingEdited=!obj.isBeingEdited
+    this.modelChange.emit(obj)
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.color)
+  
+
   }
 
 }

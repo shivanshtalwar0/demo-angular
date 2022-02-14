@@ -3,13 +3,15 @@
 <div class="container">
     <div class="row">
         <div
-        *ngFor="let post of data"
+        *ngFor="let post of data;let i=index"
         class="col-md-4 col-12">
             <app-dummy-post-item
-            [data]="post"
+            [(model)]="data[i]"
+            [color]="'black'"
             ></app-dummy-post-item>
+            <!-- [data]="post"
+            (dataBadla)="updateData($event,i)" -->
         </div>
     </div>
-
 </div>
 

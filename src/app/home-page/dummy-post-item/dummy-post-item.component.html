@@ -1,6 +1,9 @@
-<div class="card" style="width: 100%">
+<div class="card"  [style]='myComponentStyle'>
     <div class="card-body">
-      <h5 class="card-title">{{data.title}}</h5>
-      <p class="card-text">{{data.body}}</p>
+      <h5 *ngIf="!model.isBeingEdited" class="card-title">{{model.title}}</h5>
+      <input *ngIf="model.isBeingEdited" class="form-control" [(ngModel)]="model.title" placeholder="Title" else>
+      <p *ngIf="!model.isBeingEdited" class="card-text">{{model.body}}</p>
+      <textarea class="form-control" *ngIf="model.isBeingEdited" [(ngModel)]="model.body" placeholder="Body" ></textarea>
+      <button (click)="toggleEditState()" class="btn btn-primary">{{model.isBeingEdited?'Save':'Edit'}}</button>
     </div>
   </div>
