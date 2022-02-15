@@ -1,9 +1,21 @@
+<ng-template #titleInput>
+  <input  class="form-control" [(ngModel)]="model.title" placeholder="Title" else>
+</ng-template>
+
 <div class="card"  [style]='myComponentStyle'>
     <div class="card-body">
-      <h5 *ngIf="!model.isBeingEdited" class="card-title">{{model.title}}</h5>
-      <input *ngIf="model.isBeingEdited" class="form-control" [(ngModel)]="model.title" placeholder="Title" else>
+      <img class="card-img-top" [src]="model.imgUrl" alt="Card image cap">
+      <h5 *ngIf="!model.isBeingEdited;else titleInput" class="card-title">{{model.title}}</h5>
+      
       <p *ngIf="!model.isBeingEdited" class="card-text">{{model.body}}</p>
       <textarea class="form-control" *ngIf="model.isBeingEdited" [(ngModel)]="model.body" placeholder="Body" ></textarea>
-      <button (click)="toggleEditState()" class="btn btn-primary">{{model.isBeingEdited?'Save':'Edit'}}</button>
+      <span class="badge badge-primary text-black">{{price | currency:'INR':'₹'}}</span>
+      <span class="badge badge-primary text-black">{{'foo bar' | uppercase}}</span>
+      <button (click)="toggleEditState()" 
+      (mouseover)="mouseMoveOn($event,true)"
+      (mouseout)="mouseMoveOn($event,false)"
+      [class]="{'btn-primary':model.isBeingEdited,'btn-danger':!model.isBeingEdited}"
+      class="btn">{{model.isBeingEdited?'Save':'Edit'}}</button>
     </div>
+    <div [ngTemplateOutlet]="titleInput"></div>
   </div>

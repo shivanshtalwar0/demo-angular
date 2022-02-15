@@ -6,6 +6,7 @@ export interface DummyPostItem {
   id?:     number;
   title?:  string;
   body?:   string;
+  imgUrl?: string;
   isBeingEdited?:boolean;
 }
 
@@ -32,6 +33,7 @@ export class HomePageComponent implements OnInit {
     this.getPostsFromInternet().subscribe((posts)=>{
       this.data=posts.map((val)=>{
         val.isBeingEdited=false;
+        val.imgUrl='https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
         return val;
       });
       console.log(this.data)

@@ -17,6 +17,18 @@ export class DummyPostItemComponent implements OnInit {
   @Input()
   color='black'
 
+  price:number=67;
+
+  mouseMoveOn(event:any,some:any):void{
+    console.log(event.target);
+    if(some){
+      event.target.style.backgroundColor='purple'
+    }
+    else{
+      event.target.style.backgroundColor='red'
+    }
+    
+  }
   get myComponentStyle():string{
     return `color:${this.color};`
   }
