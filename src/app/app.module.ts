@@ -8,6 +8,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DummyPostItemComponent } from './home-page/dummy-post-item/dummy-post-item.component';
 import { FormsModule } from '@angular/forms';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     HomePageComponent,
     AboutUsComponent,
-    DummyPostItemComponent
+    DummyPostItemComponent,
+    NotFoundComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

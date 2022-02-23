@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,14 @@ const routes: Routes = [
   {
     path:'aboutus',
     component:AboutUsComponent
+  },
+  {
+    path:'posts/:postId',
+    component:AboutUsComponent
+  },
+  {
+    path:"**",
+    component:NotFoundComponent
   }
 ];
 
