@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
-import { DummyPostItem } from '../home-page.component';
+import { DummyPostItem } from 'src/app/interfaces/general';
 
 @Component({
   selector: 'app-dummy-post-item',

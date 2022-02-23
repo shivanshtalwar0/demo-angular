@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {
@@ -10,12 +11,16 @@ const routes: Routes = [
     component:HomePageComponent
   },
   {
+    path:'admin',
+    loadChildren:()=>import('./admin/admin.module').then((m)=>m.AdminModule)
+  },
+  {
     path:'aboutus',
     component:AboutUsComponent
   },
   {
     path:'posts/:postId',
-    component:AboutUsComponent
+    component:PostsComponent
   },
   {
     path:"**",

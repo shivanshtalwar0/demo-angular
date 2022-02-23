@@ -1,15 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-export interface DummyPostItem {
-  userId?: number;
-  id?:     number;
-  title?:  string;
-  body?:   string;
-  imgUrl?: string;
-  isBeingEdited?:boolean;
-}
-
+import { DummyPostItem } from '../interfaces/general';
 
 @Component({
   selector: 'app-home-page',
@@ -22,7 +14,7 @@ export class HomePageComponent implements OnInit {
   data:DummyPostItem[]=[]
 
   getPostsFromInternet():Observable<DummyPostItem[]>{
-    return this.http.get('https://jsonplaceholder.typicode.com/posts') as Observable<DummyPostItem[]>
+    return this.http.get('https://jsonplaceholder.typicode.com/posts/') as Observable<DummyPostItem[]>
   }
 
   // updateData(val:any,index:number){
