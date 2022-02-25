@@ -10,6 +10,11 @@ import { DummyPostItemComponent } from './home-page/dummy-post-item/dummy-post-i
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostsComponent } from './posts/posts.component';
+import { TemplateFormsComponent } from './template-forms/template-forms.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './template-forms/login/login.component';
+import { SignUpComponent } from './template-forms/sign-up/sign-up.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -19,13 +24,18 @@ import { PostsComponent } from './posts/posts.component';
     AboutUsComponent,
     DummyPostItemComponent,
     NotFoundComponent,
-    PostsComponent
+    PostsComponent,
+    TemplateFormsComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
+    MatInputModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule  
+    HttpClientModule,
+    BrowserAnimationsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

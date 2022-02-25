@@ -4,6 +4,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostsComponent } from './posts/posts.component';
+import { TemplateFormsComponent } from './template-forms/template-forms.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path:'aboutus',
     component:AboutUsComponent
+  },
+  {
+    path:'template-forms',
+    component:TemplateFormsComponent
   },
   {
     path:'posts/:postId',
